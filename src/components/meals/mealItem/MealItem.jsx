@@ -5,12 +5,13 @@ import { CartContext } from '../../../store/Cart-Context';
 
 const MealItem = ({ meal }) => {
 	const context = useContext(CartContext);
-	const addItem = () => {
+	const addProduct = (amount) => {
 		const data = {
 			title: meal.title,
 			description: meal.description,
 			price: meal.price,
-			amount: 0,
+			amount: +amount,
+			id: meal.id,
 		};
 		context.addItem(data);
 	};
@@ -21,7 +22,7 @@ const MealItem = ({ meal }) => {
 				<p>{meal.description}</p>
 				<span>${meal.price}</span>
 			</StyledMealItem>
-			<MealItemForm inputId={meal.id} onAdd={addItem} />
+			<MealItemForm inputId={meal.id} onAdd={addProduct} />
 		</Container>
 	);
 };
@@ -29,15 +30,11 @@ const MealItem = ({ meal }) => {
 const Container = styled.div`
 	display: flex;
 	justify-content: space-between;
-
 	border-bottom: 2px solid #d6d6d6;
-
 	:last-child {
 		border-bottom: none;
 	}
-
 	margin-top: 20px;
-
 	:first-child {
 		margin-top: 0px !important;
 	}
@@ -48,18 +45,15 @@ const StyledMealItem = styled.div`
 	flex-direction: column;
 	gap: 4px;
 	margin-bottom: 20px;
-
 	h4 {
 		font-weight: 600;
 		font-size: 18px;
 		color: #222222;
 		margin-top: 20px;
 	}
-
 	h4:first-child {
 		margin-top: 0px;
 	}
-
 	p {
 		font-style: italic;
 		font-weight: 400;

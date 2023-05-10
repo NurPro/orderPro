@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
+
 import styled from 'styled-components';
 import { ReactComponent as BasketIcon } from '../../assets/icons//Basket.svg';
+import { CartContext } from '../../store/Cart-Context';
 
 const OrderBusket = ({ children, onToggle }) => {
+	 const context = useContext(CartContext)
 	return (
 		<Button onClick={onToggle}>
 			<BasketIcon /> <OrderBasketTitle> {children}</OrderBasketTitle>
-			<OrderBasketCount>7</OrderBasketCount>
+			<OrderBasketCount>{context.totalAmount }</OrderBasketCount>
 		</Button>
 	);
 };

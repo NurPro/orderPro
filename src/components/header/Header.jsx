@@ -6,8 +6,7 @@ import { CartContext } from '../../store/Cart-Context';
 
 const Header = ({ onToggle }) => {
 	const context = useContext(CartContext);
-	console.log('context: ', context);
-	return (
+ 	return (
 		<header style={{ width: '100%' }}>
 			<Container>
 				<h1>ReactMeals</h1>

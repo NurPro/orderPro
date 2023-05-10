@@ -32,7 +32,6 @@ const MyButton = styled.button`
 	border-radius: ${getBorderRadius};
 	color: ${getColor};
 	border: ${getBorderColor};
-
 	font-weight: 700;
 	font-size: 14px;
 	padding: 10px 24px;
